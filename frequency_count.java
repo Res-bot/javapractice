@@ -1,16 +1,16 @@
 public class frequency_count {
 
     public static void count_occur(int[] val){
-        boolean[] isVisited = new boolean[val.length];
-        for (int i = 0; i < isVisited.length; i++) {
-            if (isVisited[i]) {
+        boolean[] isVis = new boolean[val.length];
+        for (int i = 0; i < isVis.length; i++) {
+            if (isVis[i]) {
                 continue;
             }
             int count = 0;
-            for (int j = 0; j < isVisited.length; j++) {
+            for (int j = 0; j < isVis.length; j++) {
                 if (val[i] == val[j]) {
                     count++;
-                    isVisited[j] = true;
+                    isVis[j] = true;
                 }
             }
             System.out.println(val[i] + " : " + count);
