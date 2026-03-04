@@ -41,13 +41,41 @@ public class MoveZeroes {
         }
     }
 
+    public void find_seclargesmall(int[] arrr){
+        int large = Integer.MIN_VALUE;
+        int seclarge = Integer.MIN_VALUE;
+        int small = Integer.MAX_VALUE;
+        int secsmall = Integer.MAX_VALUE;
+
+
+        for (int i = 0; i < arrr.length; i++) {
+            if(large<arrr[i]){
+                seclarge = large;
+                large = arrr[i];
+            }else if(seclarge < arrr[i] && arrr[i] != large){
+                seclarge = arrr[i];
+            }if (small>arrr[i]) {
+                secsmall = small;
+                small = arrr[i];
+            }else if(secsmall > arrr[i] && arrr[i] != small){
+                secsmall = arrr[i];
+            }
+        }
+
+        System.out.println("largest element = " + large + " and second largest element = " + seclarge);
+        System.out.println("smallest element = " + small + " and second smallest element = " + secsmall);
+    }
+
 
     public static void main(String[] args) {
         MoveZeroes mz = new MoveZeroes();
         // int[] array = {1,-4,-5,9,8,7,5,-9,-7};
         // System.out.print( mz.kadane(array));
 
-        int[] array2 = {1,0,2,0,0,3,0,4,0,0,0,0,5,0};
-        mz.mvzero(array2);
+        // int[] array2 = {1,0,2,0,0,3,0,4,0,0,0,0,5,0};
+        // mz.mvzero(array2);
+
+        int[] array3 = {2,13,17,34,67,3,90};
+        mz.find_seclargesmall(array3);
     }
 }
